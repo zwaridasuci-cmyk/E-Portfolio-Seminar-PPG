@@ -1,0 +1,1601 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal Anti-Bullying | SMA Negeri 1 Makassar</title>
+  <meta name="description"
+    content="Media edukasi, pencegahan, dan kanal pengaduan aman & rahasia untuk mewujudkan sekolah aman, nyaman, berani bicara di SMA Negeri 1 Makassar.">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            inter: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              blue: '#DC2626',
+              blueLight: '#EF4444',
+              green: '#DC2626',
+              greenDark: '#B91C1C',
+              red: '#DC2626',
+              redLight: '#EF4444',
+              purple: '#DC2626',
+              purpleLight: '#EF4444',
+              yellow: '#DC2626',
+              slate: '#0F172A',
+            }
+          },
+          backgroundImage: {
+            'hero-gradient': 'linear-gradient(135deg, #DC2626 0%, #EF4444 50%, #B91C1C 100%)',
+          },
+          boxShadow: {
+            'soft': '0 10px 30px -10px rgba(220, 38, 38, 0.25)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+
+    .fade-in {
+      animation: fadeIn 0.6s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-fade {
+      animation: heroFade 12s infinite;
+    }
+
+    .hero-fade-1 {
+      animation-delay: 0s;
+    }
+
+    .hero-fade-2 {
+      animation-delay: 6s;
+    }
+
+    @keyframes heroFade {
+      0% { opacity: 0; }
+      8% { opacity: 1; }
+      42% { opacity: 1; }
+      50% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+  </style>
+</head>
+
+<body class="bg-slate-50 text-slate-900">
+
+  <!-- Navbar -->
+  <header class="sticky top-0 z-50 border-b border-red-100 bg-white backdrop-blur">
+    <div class="mx-auto flex h-24 w-full max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
+      <a href="#beranda" class="flex items-center gap-2">
+        <img src="Logo.png" alt="Logo SMA Negeri 1 Makassar" class="h-20 w-20 object-contain">
+        <div class="flex flex-col">
+          <span class="text-sm font-bold leading-tight text-slate-900">Portal Anti-Bullying</span>
+          <span class="text-xs leading-tight text-slate-500">SMA Negeri 1 Makassar</span>
+        </div>
+      </a>
+      <nav class="hidden items-center gap-4 lg:flex lg:flex-1 lg:justify-center">
+        <a href="#beranda" class="text-sm font-medium text-slate-700 transition hover:text-red-600">Beranda</a>
+        <a href="#edukasi" class="text-sm font-medium text-slate-700 transition hover:text-red-600">Edukasi</a>
+        <a href="#panduan" class="text-sm font-medium text-slate-700 transition hover:text-red-600">Panduan Aksi</a>
+        <a href="#pengaduan" class="text-sm font-medium text-slate-700 transition hover:text-red-600">Kanal
+          Pengaduan</a>
+        <a href="#kebijakan" class="text-sm font-medium text-slate-700 transition hover:text-red-600">Kebijakan &
+          Regulasi</a>
+        <a href="#deklarasi" class="text-sm font-medium text-slate-700 transition hover:text-red-600">Deklarasi</a>
+        <a href="#pengaduan"
+          class="inline-flex items-center justify-center gap-2 rounded-lg bg-red-600 px-4 py-2 text-sm font-semibold text-white shadow-soft transition hover:bg-red-700">Laporkan
+          Kasus</a>
+        <button onclick="openBkModal()" class="inline-flex items-center gap-1.5 rounded-lg border border-red-200 px-3 py-1.5 text-sm font-semibold text-red-700 transition hover:bg-red-50">
+          <i data-lucide="shield-check" class="h-4 w-4"></i>
+          Akses Guru BK
+        </button>
+      </nav>
+      <div class="lg:hidden">
+        <button id="menuBtn"
+          class="inline-flex items-center justify-center rounded-lg p-2 text-slate-600 transition hover:bg-slate-100"
+          aria-label="Buka menu navigasi">
+          <i data-lucide="menu" class="h-5 w-5" id="menuIcon"></i>
+        </button>
+      </div>
+    </div>
+    <div id="mobileMenu" class="hidden border-t border-slate-200 bg-white lg:hidden">
+      <div class="mx-auto flex w-full max-w-6xl flex-col gap-1 px-4 py-2 sm:px-6">
+        <a href="#beranda" class="rounded-lg px-2 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-100"
+          onclick="toggleMenu()">Beranda</a>
+        <a href="#edukasi" class="rounded-lg px-2 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-100"
+          onclick="toggleMenu()">Edukasi</a>
+        <a href="#panduan" class="rounded-lg px-2 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-100"
+          onclick="toggleMenu()">Panduan Aksi</a>
+        <a href="#pengaduan"
+          class="rounded-lg px-2 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-100"
+          onclick="toggleMenu()">Kanal Pengaduan</a>
+        <a href="#kebijakan"
+          class="rounded-lg px-2 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-100"
+          onclick="toggleMenu()">Kebijakan & Regulasi</a>
+        <a href="#deklarasi"
+          class="rounded-lg px-2 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-100"
+          onclick="toggleMenu()">Deklarasi</a>
+        <button onclick="openBkModal(); toggleMenu()" class="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-red-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-red-700">
+          <i data-lucide="shield-check" class="h-4 w-4"></i>
+          Akses Guru BK
+        </button>
+        <a href="#pengaduan" class="mt-1 inline-flex w-full items-center justify-center gap-2 rounded-lg border border-red-200 px-4 py-2 text-sm font-semibold text-red-700 transition hover:bg-red-50"
+          onclick="toggleMenu()">Laporkan Kasus</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero / Beranda -->
+    <section id="beranda" class="relative overflow-hidden text-white">
+      <div class="absolute inset-0 -z-10">
+        <div class="absolute inset-0">
+          <img src="Screensaver.jpeg" alt="Screensaver Portal Anti-Bullying SMA Negeri 1 Makassar" class="absolute inset-0 h-full w-full object-cover opacity-0 hero-fade hero-fade-1">
+          <img src="Screensaver1.jpeg" alt="Screensaver Portal Anti-Bullying SMA Negeri 1 Makassar" class="absolute inset-0 h-full w-full object-cover opacity-0 hero-fade hero-fade-2">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-b from-red-900/40 to-red-900/50"></div>
+      </div>
+      <div class="mx-auto flex w-full max-w-6xl flex-col items-center gap-8 px-4 py-16 text-center sm:px-6 md:py-24 lg:px-8">
+        <div class="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-xs font-semibold backdrop-blur">
+          <i data-lucide="message-circle-heart" class="h-4 w-4"></i>
+          Portal Anti-Bullying • SMA Negeri 1 Makassar
+        </div>
+        <div class="space-y-4">
+          <h1 class="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl">
+            Sekolah Aman, Nyaman, Berani Bicara
+          </h1>
+          <p class="mx-auto max-w-2xl text-base text-white/95 md:text-lg">
+            Berani Peduli, Berani Melindungi. Wujudkan budaya saling menghargai, inklusif, dan bebas perundungan
+            melalui edukasi, pencegahan, dan pengaduan aman & rahasia.
+          </p>
+        </div>
+        <div class="flex flex-wrap items-center justify-center gap-3">
+          <a href="#pengaduan"
+            class="inline-flex items-center justify-center gap-2 rounded-lg bg-white px-5 py-2.5 text-sm font-semibold text-red-700 shadow-soft transition hover:bg-red-50">
+            <i data-lucide="file-text" class="h-4 w-4"></i>
+            Laporkan Kasus
+          </a>
+          <a href="#pengaduan"
+            class="inline-flex items-center justify-center gap-2 rounded-lg border border-white/90 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-white/10">
+            Konseling BK
+            <i data-lucide="arrow-right" class="h-4 w-4"></i>
+          </a>
+        </div>
+        <p class="text-xs text-white/90">Slogan: "Aman, Nyaman, Berani Bicara" / "Berani Peduli, Berani Melindungi"
+        </p>
+      </div>
+    </section>
+
+    <!-- Sambutan & Komitmen -->
+    <section class="py-12 md:py-16">
+      <div class="mx-auto grid w-full max-w-6xl gap-6 px-4 sm:px-6 lg:grid-cols-[1.2fr_1fr] lg:items-center lg:px-8">
+        <div class="space-y-4">
+          <div>
+            <p class="text-sm font-semibold uppercase tracking-wide text-brand-blue">Sambutan</p>
+            <h2 class="mt-2 text-2xl font-bold tracking-tight text-brand-slate md:text-3xl">Ringkasan Pengantar
+              Kepala Sekolah</h2>
+            <p class="mt-2 max-w-2xl text-base text-slate-600 md:text-lg">
+              Mewujudkan SMA Negeri 1 Makassar sebagai ruang belajar yang aman, nyaman, inklusif, dan menghargai martabat
+              setiap warga sekolah.
+            </p>
+          </div>
+          <div class="space-y-3 text-sm leading-relaxed text-slate-600 md:text-base">
+            <p>
+              Perundungan dalam bentuk apapun tidak dibenarkan di lingkungan SMA Negeri 1 Makassar. Kami mengajak seluruh
+              peserta didik, pendidik, tenaga kependidikan, dan orang tua/wali untuk bersama-sama menumbuhkan budaya
+              berani peduli, berani melindungi, dan berani bicara dengan cara yang aman.
+            </p>
+            <p>
+              Portal ini hadir sebagai media edukasi, pencegahan, serta kanal pengaduan yang menjunjung tinggi privasi
+              dan kerahasiaan pelapor demi terwujudnya Budaya Sekolah Aman dan Nyaman.
+            </p>
+          </div>
+          <p class="text-sm font-semibold text-brand-slate">Kepala SMA Negeri 1 Makassar</p>
+        </div>
+        <div
+          class="rounded-2xl border border-slate-200 bg-gradient-to-br from-white to-slate-50 p-6 shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg">
+          <p class="text-base font-semibold text-brand-slate">Komitmen Bersama</p>
+          <ul class="mt-3 space-y-2 text-sm text-slate-600">
+            <li>• Zero tolerance terhadap segala bentuk perundungan</li>
+            <li>• Pendekatan edukatif, restoratif, dan humanis</li>
+            <li>• Perlindungan dan pendampingan bagi korban</li>
+            <li>• Pembinaan bagi pelaku berbasis pemulihan</li>
+            <li>• Pencegahan melalui literasi digital & empati</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5 Pilar -->
+    <section class="bg-white py-12 md:py-16">
+      <div class="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="space-y-8">
+          <div class="text-center">
+            <p class="text-sm font-semibold uppercase tracking-wide text-red-600">5 Pilar Sekolah Aman</p>
+            <h2 class="mt-2 text-2xl font-bold tracking-tight text-slate-900 md:text-3xl">Landasan Budaya
+              Anti-Bullying</h2>
+            <p class="mx-auto mt-2 max-w-2xl text-base text-slate-600 md:text-lg">
+              Nilai-nilai bersama untuk menjaga suasana belajar yang aman, nyaman, dan inklusif.
+            </p>
+          </div>
+          <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+            <div
+              class="rounded-2xl border border-red-100 bg-white p-6 text-center shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg">
+              <div class="mx-auto flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-red-600 to-red-700 text-white">
+                <i data-lucide="users" class="h-5 w-5"></i>
+              </div>
+              <p class="mt-3 text-base font-semibold text-slate-900">Saling Menghargai</p>
+              <p class="mt-1 text-sm text-slate-600">Menghormati perbedaan tanpa merendahkan.</p>
+            </div>
+            <div
+              class="rounded-2xl border border-red-100 bg-white p-6 text-center shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg">
+              <div class="mx-auto flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-red-600 to-red-700 text-white">
+                <i data-lucide="mic" class="h-5 w-5"></i>
+              </div>
+              <p class="mt-3 text-base font-semibold text-slate-900">Berani Bicara</p>
+              <p class="mt-1 text-sm text-slate-600">Melaporkan dengan aman tanpa takut dihakimi.</p>
+            </div>
+            <div
+              class="rounded-2xl border border-red-100 bg-white p-6 text-center shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg">
+              <div class="mx-auto flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-red-600 to-red-700 text-white">
+                <i data-lucide="heart" class="h-5 w-5"></i>
+              </div>
+              <p class="mt-3 text-base font-semibold text-slate-900">Berani Peduli</p>
+              <p class="mt-1 text-sm text-slate-600">Menjadi upstander, bukan hanya penonton.</p>
+            </div>
+            <div
+              class="rounded-2xl border border-red-100 bg-white p-6 text-center shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg">
+              <div class="mx-auto flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-red-600 to-red-700 text-white">
+                <i data-lucide="smartphone" class="h-5 w-5"></i>
+              </div>
+              <p class="mt-3 text-base font-semibold text-slate-900">Bijak Bermedia</p>
+              <p class="mt-1 text-sm text-slate-600">Beretika digital, mencegah cyberbullying.</p>
+            </div>
+            <div
+              class="rounded-2xl border border-red-100 bg-white p-6 text-center shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg">
+              <div class="mx-auto flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-red-600 to-red-700 text-white">
+                <i data-lucide="shield" class="h-5 w-5"></i>
+              </div>
+              <p class="mt-3 text-base font-semibold text-slate-900">Menjaga Martabat</p>
+              <p class="mt-1 text-sm text-slate-600">Melindungi harga diri setiap warga sekolah.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Bantuan -->
+    <section class="py-12 md:py-16">
+      <div class="mx-auto grid w-full max-w-6xl gap-6 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
+        <div
+          class="rounded-2xl border border-red-100 bg-white p-6 shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg">
+          <div class="flex items-start gap-3">
+            <div class="flex h-10 w-10 items-center justify-center rounded-full bg-red-100 text-red-600">
+              <i data-lucide="message-square-warning" class="h-5 w-5"></i>
+            </div>
+            <div>
+              <p class="text-lg font-semibold text-slate-900">Butuh bantuan segera?</p>
+              <p class="mt-1 text-sm text-slate-600">Jika kamu atau temanmu sedang dalam situasi tidak aman, laporkan
+                melalui kanal pengaduan aman. Identitas bisa dijaga kerahasiaannya.</p>
+              <div class="mt-4 flex flex-wrap gap-2">
+                <a href="#pengaduan"
+                  class="inline-flex items-center justify-center gap-2 rounded-lg bg-red-600 px-5 py-2.5 text-sm font-semibold text-white shadow-soft transition hover:bg-red-700">Laporkan
+                  Kasus</a>
+                <a href="#pengaduan"
+                  class="inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-red-50">Konseling
+                  BK <i data-lucide="arrow-right" class="h-4 w-4"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="rounded-2xl border border-red-100 bg-white p-6 shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg">
+          <div class="flex items-start gap-3">
+            <div class="flex h-10 w-10 items-center justify-center rounded-full bg-red-100 text-red-600">
+              <i data-lucide="heart-handshake" class="h-5 w-5"></i>
+            </div>
+            <div>
+              <p class="text-lg font-semibold text-slate-900">Jadi Upstander, Bukan Penonton</p>
+              <p class="mt-1 text-sm text-slate-600">Pelajari panduan aksi untuk mendukung korban secara aman, tepat,
+                dan manusiawi.</p>
+              <div class="mt-4">
+                <a href="#panduan"
+                  class="inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-red-50">Baca
+                  Panduan Aksi <i data-lucide="arrow-right" class="h-4 w-4"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Edukasi -->
+    <section id="edukasi" class="bg-white py-12 md:py-16">
+      <div class="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl space-y-3">
+          <span
+            class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-1 text-xs font-semibold text-red-700">Edukasi</span>
+          <h2 class="text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">Edukasi Anti-Bullying</h2>
+          <p class="text-base text-slate-600 md:text-lg">Memahami perbedaan antara perundungan, bercanda, dan konflik
+            biasa agar kita bisa bertindak tepat.</p>
+        </div>
+        <div class="mt-8 grid gap-6 lg:grid-cols-2">
+          <div
+            class="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg">
+            <div class="flex items-start gap-3">
+              <div class="flex h-10 w-10 items-center justify-center rounded-full bg-brand-blue/10 text-brand-blue">
+                <i data-lucide="message-square-text" class="h-5 w-5"></i>
+              </div>
+              <div>
+                <p class="text-lg font-semibold text-brand-slate">Definisi & Perbedaan</p>
+                <ul class="mt-3 space-y-2 text-sm text-slate-600">
+                  <li><strong>Perundungan (bullying):</strong> Perilaku agresif yang disengaja, berulang atau berpotensi
+                    berulang, terjadi dalam hubungan yang tidak seimbang (kekuatan/pengaruh).</li>
+                  <li><strong>Bercanda sehat:</strong> Saling suka, ada persetujuan, bisa berhenti jika diminta, tidak
+                    merendahkan.</li>
+                  <li><strong>Konflik biasa:</strong> Perselisihan dua belah pihak dengan kedudukan relatif setara, bisa
+                    diselesaikan secara dialogis.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div
+            class="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg">
+            <div class="flex items-start gap-3">
+              <div class="flex h-10 w-10 items-center justify-center rounded-full bg-brand-red/10 text-brand-red">
+                <i data-lucide="alert-triangle" class="h-5 w-5"></i>
+              </div>
+              <div>
+                <p class="text-lg font-semibold text-brand-slate">Bentuk-Bentuk Perundungan</p>
+                <ul class="mt-3 space-y-2 text-sm text-slate-600">
+                  <li><strong>Fisik:</strong> Menendang, mendorong, memukul, merusak barang.</li>
+                  <li><strong>Verbal:</strong> Mengejek, menghina, ancaman, lelucon merendahkan.</li>
+                  <li><strong>Sosial/Relasional:</strong> Mengucilkan, menyebar gosip, memfitnah, menjauhi secara
+                    sengaja.</li>
+                  <li><strong>Cyberbullying/Digital:</strong> Pelecehan lewat chat/grup, komentar jahat, doxxing, meme
+                    menghina, penyebaran konten memalukan.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-6 grid gap-6 lg:grid-cols-2">
+          <div
+            class="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg">
+            <div class="flex items-start gap-3">
+              <div class="flex h-10 w-10 items-center justify-center rounded-full bg-brand-purple/10 text-brand-purple">
+                <i data-lucide="globe" class="h-5 w-5"></i>
+              </div>
+              <div>
+                <p class="text-lg font-semibold text-brand-slate">Cyberbullying & Keamanan Digital</p>
+                <p class="mt-1 text-sm text-slate-600">Bijak bermedia untuk melindungi diri dan orang lain.</p>
+                <p class="mt-3 text-sm font-semibold text-brand-slate">Checklist "Sebelum Posting/Forward"</p>
+                <ul class="mt-2 space-y-2 text-sm text-slate-600">
+                  <li>✓ <strong>Benar?</strong> Sudah cek kebenaran informasinya?</li>
+                  <li>✓ <strong>Perlu?</strong> Apakah perlu dibagikan?</li>
+                  <li>✓ <strong>Baik?</strong> Apakah tidak menyakiti atau merendahkan?</li>
+                  <li>✓ <strong>Ada izin?</strong> Sudah minta izin jika berisi orang lain/foto pribadi?</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div
+            class="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg">
+            <div class="flex items-start gap-3">
+              <div class="flex h-10 w-10 items-center justify-center rounded-full bg-brand-green/10 text-brand-greenDark">
+                <i data-lucide="map-pin" class="h-5 w-5"></i>
+              </div>
+              <div>
+                <p class="text-lg font-semibold text-brand-slate">Lokasi Rawan Perundungan</p>
+                <ul class="mt-3 space-y-2 text-sm text-slate-600">
+                  <li><strong>Lingkungan Sekolah:</strong> Koridor, kantin, toilet, tangga, lapangan saat tidak
+                    diawasi.</li>
+                  <li><strong>Kegiatan Sekolah/MPLS:</strong> Kelompok, permainan, pembagian kelompok yang tidak inklusif.
+                  </li>
+                  <li><strong>Ruang Digital:</strong> Grup kelas, grup ekskul, story/comment, game online, DM.</li>
+                </ul>
+                <p class="mt-3 text-xs text-slate-500">Kesadaran bersama & kewaspadaan yang bijak dapat mencegah
+                  kejadian.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Panduan Aksi -->
+    <section id="panduan" class="py-12 md:py-16">
+      <div class="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl space-y-3">
+          <span
+            class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-1 text-xs font-semibold text-red-700">Panduan
+            Aksi</span>
+          <h2 class="text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">Panduan Aksi & Peran Warga
+            Sekolah</h2>
+          <p class="text-base text-slate-600 md:text-lg">Bertindak aman, tepat, dan manusiawi untuk melindungi,
+            mendampingi, dan memulihkan.</p>
+        </div>
+        <div class="mt-8 space-y-6">
+          <div>
+            <p class="text-sm font-semibold uppercase tracking-wide text-brand-blue">Untuk Korban</p>
+            <h3 class="mt-2 text-2xl font-bold tracking-tight text-brand-slate md:text-3xl">Langkah 5S</h3>
+            <p class="mt-2 max-w-2xl text-base text-slate-600">Lindungi diri, kumpulkan bukti, cari bantuan terpercaya.
+            </p>
+          </div>
+          <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-5">
+            <div
+              class="rounded-2xl border border-slate-200 bg-white p-6 text-center shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg">
+              <div
+                class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-hero-gradient text-lg font-bold text-white">
+                S</div>
+              <p class="mt-3 text-base font-semibold text-brand-slate">Sadari</p>
+              <p class="mt-1 text-sm text-slate-600">Kenali bahwa yang dialami adalah perundungan.</p>
+            </div>
+            <div
+              class="rounded-2xl border border-slate-200 bg-white p-6 text-center shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg">
+              <div
+                class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-hero-gradient text-lg font-bold text-white">
+                S</div>
+              <p class="mt-3 text-base font-semibold text-brand-slate">Selamatkan Diri</p>
+              <p class="mt-1 text-sm text-slate-600">Pindah ke tempat aman, minta bantuan.</p>
+            </div>
+            <div
+              class="rounded-2xl border border-slate-200 bg-white p-6 text-center shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg">
+              <div
+                class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-hero-gradient text-lg font-bold text-white">
+                S</div>
+              <p class="mt-3 text-base font-semibold text-brand-slate">Simpan Bukti</p>
+              <p class="mt-1 text-sm text-slate-600">Screenshot, chat, foto, saksi, waktu & lokasi.</p>
+            </div>
+            <div
+              class="rounded-2xl border border-slate-200 bg-white p-6 text-center shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg">
+              <div
+                class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-hero-gradient text-lg font-bold text-white">
+                S</div>
+              <p class="mt-3 text-base font-semibold text-brand-slate">Sampaikan</p>
+              <p class="mt-1 text-sm text-slate-600">Cerita ke orang terpercaya (BK/Wali Kelas).</p>
+            </div>
+            <div
+              class="rounded-2xl border border-slate-200 bg-white p-6 text-center shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg">
+              <div
+                class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-hero-gradient text-lg font-bold text-white">
+                S</div>
+              <p class="mt-3 text-base font-semibold text-brand-slate">Segera Laporkan</p>
+              <p class="mt-1 text-sm text-slate-600">Gunakan kanal pengaduan aman sekolah.</p>
+            </div>
+          </div>
+        </div>
+        <div class="mt-8 grid gap-6 lg:grid-cols-2">
+          <div
+            class="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg">
+            <div class="flex items-start gap-3">
+              <div class="flex h-10 w-10 items-center justify-center rounded-full bg-brand-blue/10 text-brand-blue">
+                <i data-lucide="users-round" class="h-5 w-5"></i>
+              </div>
+              <div>
+                <p class="text-lg font-semibold text-brand-slate">Panduan Upstander untuk Saksi</p>
+                <div class="mt-3 grid gap-4 sm:grid-cols-2">
+                  <div>
+                    <p class="text-sm font-semibold text-brand-greenDark">DO (Lakukan)</p>
+                    <ul class="mt-2 space-y-2 text-sm text-slate-600">
+                      <li>• Pastikan keamanan diri & korban</li>
+                      <li>• Ajak korban menjauh / cari tempat aman</li>
+                      <li>• Dukung korban untuk berbicara</li>
+                      <li>• Kumpulkan info/bukti secara aman</li>
+                      <li>• Laporkan ke BK/Wali Kelas/Wakasek Kesiswaan</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <p class="text-sm font-semibold text-brand-red">DON'T (Jangan)</p>
+                    <ul class="mt-2 space-y-2 text-sm text-slate-600">
+                      <li>• Ikut mengejek/membalas dengan kekerasan</li>
+                      <li>• Merekam untuk bahan lelucon</li>
+                      <li>• Menyebarkan video/foto kejadian</li>
+                      <li>• Memaksa korban melawan sendirian</li>
+                      <li>• Menyalahkan korban</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg">
+            <div class="flex items-start gap-3">
+              <div class="flex h-10 w-10 items-center justify-center rounded-full bg-brand-green/10 text-brand-greenDark">
+                <i data-lucide="hand-heart" class="h-5 w-5"></i>
+              </div>
+              <div>
+                <p class="text-lg font-semibold text-brand-slate">Langkah Pemulihan bagi Pelaku</p>
+                <ul class="mt-3 space-y-2 text-sm text-slate-600">
+                  <li>• <strong>Kesadaran:</strong> Mengenali dampak perbuatannya</li>
+                  <li>• <strong>Tanggung jawab:</strong> Mengakui, meminta maaf tulus</li>
+                  <li>• <strong>Pembinaan:</strong> Bimbingan BK & pembinaan kesiswaan</li>
+                  <li>• <strong>Perbaikan:</strong> Pendekatan restoratif, memperbaiki hubungan</li>
+                  <li>• <strong>Pencegahan:</strong> Belajar empati & regulasi emosi</li>
+                </ul>
+                <p class="mt-3 text-xs text-slate-500">Pendekatan edukatif & pemulihan dengan tetap menjamin
+                  perlindungan korban.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-6">
+          <div
+            class="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg">
+            <div class="flex items-start gap-3">
+              <div class="flex h-10 w-10 items-center justify-center rounded-full bg-brand-purple/10 text-brand-purple">
+                <i data-lucide="book-open-check" class="h-5 w-5"></i>
+              </div>
+              <div>
+                <p class="text-lg font-semibold text-brand-slate">Peran Pendidik dan Orang Tua/Wali</p>
+                <div class="mt-3 grid gap-4 md:grid-cols-2">
+                  <div>
+                    <p class="text-sm font-semibold text-brand-slate">Pendidik & Tenaga Kependidikan</p>
+                    <ul class="mt-2 space-y-2 text-sm text-slate-600">
+                      <li>• Menciptakan iklim kelas yang aman & inklusif</li>
+                      <li>• Waspada tanda-tanda perundungan</li>
+                      <li>• Menangani cepat, netral, rahasia</li>
+                      <li>• Mengintegrasikan pendidikan karakter & literasi digital</li>
+                      <li>• Kolaborasi dengan BK & Tim Anti-Bullying</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <p class="text-sm font-semibold text-brand-slate">Orang Tua/Wali</p>
+                    <ul class="mt-2 space-y-2 text-sm text-slate-600">
+                      <li>• Bangun komunikasi terbuka & tanpa menghakimi</li>
+                      <li>• Perhatikan perubahan perilaku anak</li>
+                      <li>• Dampingi anak bijak bermedia digital</li>
+                      <li>• Jalin komunikasi positif dengan sekolah</li>
+                      <li>• Dukung proses pendampingan & pemulihan</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pengaduan -->
+    <section id="pengaduan" class="bg-white py-12 md:py-16">
+      <div class="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl space-y-3">
+          <span
+            class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-1 text-xs font-semibold text-red-700">Kanal
+            Pengaduan</span>
+          <h2 class="text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">Pengaduan Aman, Rahasia, &
+            Terpercaya</h2>
+          <p class="text-base text-slate-600 md:text-lg">Kamu bisa melaporkan sebagai korban, saksi, atau orang lain.
+            Identitas pelapor bisa bersifat anonim sesuai kebutuhan & keamanan.</p>
+        </div>
+
+        <!-- Alur -->
+        <div class="mt-8 space-y-6">
+          <div>
+            <p class="text-sm font-semibold uppercase tracking-wide text-brand-blue">Alur Pelaporan</p>
+            <h3 class="mt-2 text-2xl font-bold tracking-tight text-brand-slate md:text-3xl">6 Langkah Penanganan</h3>
+            <p class="mt-2 max-w-2xl text-base text-slate-600">Sistematis, aman, rahasia, dan berorientasi pemulihan.
+            </p>
+          </div>
+          <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            <div class="relative rounded-2xl border border-slate-200 bg-white p-6 shadow-soft">
+              <div class="flex items-start gap-3">
+                <div
+                  class="flex h-10 w-10 items-center justify-center rounded-full bg-hero-gradient text-sm font-bold text-white">
+                  1</div>
+                <div>
+                  <p class="text-base font-semibold text-brand-slate">Laporkan</p>
+                  <p class="mt-1 text-sm text-slate-600">Melalui form aman/anonim atau kontak terpercaya.</p>
+                </div>
+              </div>
+            </div>
+            <div class="relative rounded-2xl border border-slate-200 bg-white p-6 shadow-soft">
+              <div class="flex items-start gap-3">
+                <div
+                  class="flex h-10 w-10 items-center justify-center rounded-full bg-hero-gradient text-sm font-bold text-white">
+                  2</div>
+                <div>
+                  <p class="text-base font-semibold text-brand-slate">Terima & Amankan</p>
+                  <p class="mt-1 text-sm text-slate-600">Menerima laporan, memastikan keamanan pelapor/korban.</p>
+                </div>
+              </div>
+            </div>
+            <div class="relative rounded-2xl border border-slate-200 bg-white p-6 shadow-soft">
+              <div class="flex items-start gap-3">
+                <div
+                  class="flex h-10 w-10 items-center justify-center rounded-full bg-hero-gradient text-sm font-bold text-white">
+                  3</div>
+                <div>
+                  <p class="text-base font-semibold text-brand-slate">Catat & Klarifikasi</p>
+                  <p class="mt-1 text-sm text-slate-600">Pendataan faktual, netral, rahasia.</p>
+                </div>
+              </div>
+            </div>
+            <div class="relative rounded-2xl border border-slate-200 bg-white p-6 shadow-soft">
+              <div class="flex items-start gap-3">
+                <div
+                  class="flex h-10 w-10 items-center justify-center rounded-full bg-hero-gradient text-sm font-bold text-white">
+                  4</div>
+                <div>
+                  <p class="text-base font-semibold text-brand-slate">Tentukan Penanganan</p>
+                  <p class="mt-1 text-sm text-slate-600">Pendekatan restorative & sesuai aturan sekolah.</p>
+                </div>
+              </div>
+            </div>
+            <div class="relative rounded-2xl border border-slate-200 bg-white p-6 shadow-soft">
+              <div class="flex items-start gap-3">
+                <div
+                  class="flex h-10 w-10 items-center justify-center rounded-full bg-hero-gradient text-sm font-bold text-white">
+                  5</div>
+                <div>
+                  <p class="text-base font-semibold text-brand-slate">Pendampingan</p>
+                  <p class="mt-1 text-sm text-slate-600">BK/Tim mendampingi korban, edukasi pelaku.</p>
+                </div>
+              </div>
+            </div>
+            <div class="relative rounded-2xl border border-slate-200 bg-white p-6 shadow-soft">
+              <div class="flex items-start gap-3">
+                <div
+                  class="flex h-10 w-10 items-center justify-center rounded-full bg-hero-gradient text-sm font-bold text-white">
+                  6</div>
+                <div>
+                  <p class="text-base font-semibold text-brand-slate">Monitoring</p>
+                  <p class="mt-1 text-sm text-slate-600">Pemantauan jangka pendek & upaya pencegahan.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form -->
+        <div class="mt-10 space-y-6">
+          <div>
+            <p class="text-sm font-semibold uppercase tracking-wide text-brand-blue">Form Pengaduan</p>
+            <h3 class="mt-2 text-2xl font-bold tracking-tight text-brand-slate md:text-3xl">Kirim Laporan Secara Aman
+            </h3>
+            <p class="mt-2 max-w-2xl text-base text-slate-600">Isi form berikut. Bila khawatir, pilih laporan anonim.
+              Lampirkan bukti jika ada.</p>
+          </div>
+
+          <div id="formSuccess" class="hidden rounded-2xl border border-slate-200 bg-white p-8 text-center shadow-soft">
+            <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-brand-green/10 text-brand-greenDark">
+              <i data-lucide="check-circle-2" class="h-6 w-6"></i>
+            </div>
+            <p class="mt-3 text-lg font-semibold text-brand-slate">Laporan Terkirim (Simulasi)</p>
+            <p class="mt-1 text-sm text-slate-600">Terima kasih telah berani bicara. Tim Anti-Bullying SMA Negeri 1
+              Makassar akan menindaklanjuti sesuai alur pelaporan dengan menjunjung tinggi privasi & kerahasiaan.</p>
+            <p class="mt-3 text-xs text-slate-500">Catatan: Form ini bersifat demo front-end.</p>
+            <div class="mt-4">
+              <button onclick="resetForm()"
+                class="inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold text-brand-slate transition hover:bg-slate-100">Kirim
+                Laporan Lain</button>
+            </div>
+          </div>
+
+          <form id="complaintForm" class="grid gap-6" onsubmit="submitForm(event)">
+            <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft">
+              <div class="flex items-start gap-3">
+                <div class="flex h-10 w-10 items-center justify-center rounded-full bg-brand-blue/10 text-brand-blue">
+                  <i data-lucide="lock" class="h-5 w-5"></i>
+                </div>
+                <div class="flex-1">
+                  <p class="text-base font-semibold text-brand-slate">Pengaturan Kerahasiaan</p>
+                  <div class="mt-3 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                    <label class="flex items-center gap-2 text-sm text-slate-700">
+                      <input type="checkbox" id="anonymous"
+                        class="h-4 w-4 rounded border-slate-300 text-brand-blue focus:ring-brand-blue"
+                        onchange="toggleAnonymous()">
+                      Laporkan secara anonim (identitas tidak dicantumkan)
+                    </label>
+                    <div class="w-full sm:w-auto">
+                      <label class="text-sm text-slate-700">Pelapor</label>
+                      <select id="reporterType"
+                        class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-brand-blue focus:outline-none focus:ring-1 focus:ring-brand-blue sm:w-48">
+                        <option value="Korban">Korban</option>
+                        <option value="Saksi">Saksi</option>
+                        <option value="Orang Lain">Orang Lain</option>
+                        <option value="Tidak Ingin Sebut">Tidak Ingin Sebut</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div id="trustedContactWrap" class="mt-3">
+                    <label class="text-sm text-slate-700">Kontak terpercaya (opsional)</label>
+                    <input type="text" id="trustedContact" placeholder="No. WA / nama yang bisa dihubungi (aman)"
+                      class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-brand-blue focus:outline-none focus:ring-1 focus:ring-brand-blue">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft">
+              <p class="text-base font-semibold text-slate-900">Informasi Kejadian & Jadwal Konsultasi</p>
+              <div class="mt-3 grid gap-4 md:grid-cols-2">
+                <div>
+                  <label class="text-sm text-slate-700">Jenis Perundungan</label>
+                  <select id="reportType"
+                    class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-brand-blue focus:outline-none focus:ring-1 focus:ring-brand-blue">
+                    <option value="Fisik">Fisik</option>
+                    <option value="Verbal">Verbal</option>
+                    <option value="Sosial/Relasional">Sosial/Relasional</option>
+                    <option value="Cyberbullying/Digital">Cyberbullying/Digital</option>
+                    <option value="Lainnya">Lainnya</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="text-sm text-slate-700">Lokasi Kejadian</label>
+                  <select id="location" onchange="toggleLocationDetail()"
+                    class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-brand-blue focus:outline-none focus:ring-1 focus:ring-brand-blue">
+                    <option value="Kelas">Kelas</option>
+                    <option value="Koridor/Lorong">Koridor/Lorong</option>
+                    <option value="Kantin">Kantin</option>
+                    <option value="Lapangan/Upacara">Lapangan/Upacara</option>
+                    <option value="Toilet">Toilet</option>
+                    <option value="Perpustakaan">Perpustakaan</option>
+                    <option value="Ekstrakurikuler">Ekstrakurikuler</option>
+                    <option value="MPLS">MPLS</option>
+                    <option value="Ruang Digital/Grup Chat">Ruang Digital/Grup Chat</option>
+                    <option value="Lainnya">Lainnya</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="text-sm text-slate-700">Tanggal Kejadian</label>
+                  <input type="date" id="incidentDate"
+                    class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-brand-blue focus:outline-none focus:ring-1 focus:ring-brand-blue">
+                </div>
+                <div>
+                  <label class="text-sm text-slate-700">Waktu Kejadian (opsional)</label>
+                  <input type="time" id="incidentTime"
+                    class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-brand-blue focus:outline-none focus:ring-1 focus:ring-brand-blue">
+                </div>
+                <div class="md:col-span-2">
+                  <label class="text-sm text-slate-700">Pilih Jadwal Bertemu Langsung dengan Guru BK <span class="text-brand-red">*</span></label>
+                  <select id="meetingSchedule"
+                    class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-brand-blue focus:outline-none focus:ring-1 focus:ring-brand-blue">
+                    <option value="">-- Pilih Jadwal Konsultasi --</option>
+                    <optgroup label="Kelas X">
+                      <option value="X-Senin-07.15">Senin, 07.15 WITA</option>
+                      <option value="X-Senin-09.00">Senin, 09.00 WITA</option>
+                      <option value="X-Senin-11.00">Senin, 11.00 WITA</option>
+                      <option value="X-Senin-13.00">Senin, 13.00 WITA</option>
+                      <option value="X-Selasa-07.15">Selasa, 07.15 WITA</option>
+                      <option value="X-Rabu-07.15">Rabu, 07.15 WITA</option>
+                      <option value="X-Kamis-07.15">Kamis, 07.15 WITA</option>
+                      <option value="X-Jumat-07.15">Jumat, 07.15 WITA</option>
+                      <option value="X-Jumat-09.00">Jumat, 09.00 WITA</option>
+                    </optgroup>
+                    <optgroup label="Kelas XI">
+                      <option value="XI-Senin-07.15">Senin, 07.15 WITA</option>
+                      <option value="XI-Senin-09.00">Senin, 09.00 WITA</option>
+                      <option value="XI-Senin-11.00">Senin, 11.00 WITA</option>
+                      <option value="XI-Senin-13.00">Senin, 13.00 WITA</option>
+                      <option value="XI-Selasa-07.15">Selasa, 07.15 WITA</option>
+                      <option value="XI-Rabu-07.15">Rabu, 07.15 WITA</option>
+                      <option value="XI-Kamis-07.15">Kamis, 07.15 WITA</option>
+                      <option value="XI-Jumat-07.15">Jumat, 07.15 WITA</option>
+                      <option value="XI-Jumat-09.00">Jumat, 09.00 WITA</option>
+                    </optgroup>
+                    <optgroup label="Kelas XII">
+                      <option value="XII-Senin-07.15">Senin, 07.15 WITA</option>
+                      <option value="XII-Senin-09.00">Senin, 09.00 WITA</option>
+                      <option value="XII-Senin-11.00">Senin, 11.00 WITA</option>
+                      <option value="XII-Senin-13.00">Senin, 13.00 WITA</option>
+                      <option value="XII-Selasa-07.15">Selasa, 07.15 WITA</option>
+                      <option value="XII-Rabu-07.15">Rabu, 07.15 WITA</option>
+                      <option value="XII-Kamis-07.15">Kamis, 07.15 WITA</option>
+                      <option value="XII-Jumat-07.15">Jumat, 07.15 WITA</option>
+                      <option value="XII-Jumat-09.00">Jumat, 09.00 WITA</option>
+                    </optgroup>
+                  </select>
+                  <p class="mt-1 text-xs text-slate-500">Pilih waktu konsultasi sesuai jam layanan BK sekolah.</p>
+                </div>
+                <div id="locationDetailWrap" class="hidden md:col-span-2">
+                  <label class="text-sm text-slate-700">Detail Lokasi</label>
+                  <input type="text" id="locationDetail" placeholder="Sebutkan lokasi spesifik"
+                    class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-brand-blue focus:outline-none focus:ring-1 focus:ring-brand-blue">
+                </div>
+              </div>
+            </div>
+
+            <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft">
+              <p class="text-base font-semibold text-brand-slate">Deskripsi & Bukti</p>
+              <div class="mt-3 grid gap-4">
+                <div>
+                  <label class="text-sm text-slate-700">Deskripsi Kejadian <span class="text-brand-red">*</span></label>
+                  <textarea id="description" rows="6"
+                    placeholder="Ceritakan apa yang terjadi, siapa yang terlibat (jika aman disebut), kronologi, dan dampak yang dirasakan..."
+                    class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-brand-blue focus:outline-none focus:ring-1 focus:ring-brand-blue"></textarea>
+                </div>
+                <div>
+                  <label class="text-sm text-slate-700">Lampirkan Bukti (opsional)</label>
+                  <div
+                    class="mt-1 flex items-center gap-2 rounded-lg border border-dashed border-slate-300 px-3 py-4 text-sm text-slate-600">
+                    <i data-lucide="file-up" class="h-4 w-4"></i>
+                    <span>Screenshot, chat, foto, atau bukti lain</span>
+                  </div>
+                  <input type="file" id="evidence" multiple
+                    class="mt-2 block w-full text-sm text-slate-600 file:mr-4 file:rounded-lg file:border-0 file:bg-brand-blue/10 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-brand-blue hover:file:bg-brand-blue/20">
+                  <p class="mt-1 text-xs text-slate-500">Jangan kirim foto/video sensitif yang memperbesar risiko. Hanya
+                    kirim jika aman.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft">
+              <div class="flex flex-col gap-3">
+                <label class="flex items-start gap-2 text-sm text-slate-700">
+                  <input type="checkbox" id="agreePrivacy"
+                    class="mt-0.5 h-4 w-4 rounded border-slate-300 text-brand-blue focus:ring-brand-blue">
+                  <span>Saya menyetujui laporan ini ditangani dengan prinsip privasi, kerahasiaan, dan berorientasi pada
+                    keselamatan & pemulihan sesuai kode etik Bimbingan Konseling. <span
+                      class="text-brand-red">*</span></span>
+                </label>
+                <div id="formError" class="hidden items-center gap-2 rounded-lg bg-brand-red/10 px-3 py-2 text-sm text-brand-red">
+                  <i data-lucide="alert-circle" class="h-4 w-4"></i>
+                  <span id="formErrorText"></span>
+                </div>
+                <div class="flex flex-wrap items-center gap-2">
+                  <button type="submit"
+                    class="inline-flex items-center justify-center gap-2 rounded-lg bg-brand-blue px-5 py-2.5 text-sm font-semibold text-white shadow-soft transition hover:bg-brand-blueLight">
+                    <i data-lucide="send" class="h-4 w-4"></i>
+                    Kirim Laporan (Simulasi)
+                  </button>
+                  <p class="text-xs text-slate-500">Tombol ini demo front-end. Untuk produksi wajib menggunakan saluran
+                    resmi & aman.</p>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <!-- Kontak Cepat -->
+        <div class="mt-10 space-y-6" id="kontak-cepat">
+          <div>
+            <p class="text-sm font-semibold uppercase tracking-wide text-red-600">Kontak Cepat</p>
+            <h3 class="mt-2 text-2xl font-bold tracking-tight text-slate-900 md:text-3xl">Layanan Terpercaya</h3>
+            <p class="mt-2 max-w-2xl text-base text-slate-600">Hubungi langsung layanan berikut saat butuh bantuan
+              segera.</p>
+          </div>
+          <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+            <div class="rounded-2xl border border-red-100 bg-white p-6 shadow-soft">
+              <div class="flex items-start gap-3">
+                <div class="flex h-10 w-10 items-center justify-center rounded-full bg-red-100 text-red-600">
+                  <i data-lucide="phone" class="h-5 w-5"></i>
+                </div>
+                <div>
+                  <p class="text-base font-semibold text-slate-900">Koordinator BK / Guru BK Kelas XII</p>
+                  <p class="mt-1 text-sm text-slate-600">Ima Nurmiati, S.Pd., M.Pd.</p>
+                  <p class="mt-2 text-sm font-medium text-red-600">+62 821-9154-3976</p>
+                  <p class="mt-1 text-xs text-slate-500">Jam sekolah</p>
+                </div>
+              </div>
+            </div>
+            <div class="rounded-2xl border border-red-100 bg-white p-6 shadow-soft">
+              <div class="flex items-start gap-3">
+                <div class="flex h-10 w-10 items-center justify-center rounded-full bg-red-100 text-red-600">
+                  <i data-lucide="phone" class="h-5 w-5"></i>
+                </div>
+                <div>
+                  <p class="text-base font-semibold text-slate-900">Guru BK Kelas XI</p>
+                  <p class="mt-1 text-sm text-slate-600">Andi Firdawati, S.Pd., M.Pd.</p>
+                  <p class="mt-2 text-sm font-medium text-red-600">+62 853-3329-6943</p>
+                  <p class="mt-1 text-xs text-slate-500">Jam sekolah</p>
+                </div>
+              </div>
+            </div>
+            <div class="rounded-2xl border border-red-100 bg-white p-6 shadow-soft">
+              <div class="flex items-start gap-3">
+                <div class="flex h-10 w-10 items-center justify-center rounded-full bg-red-100 text-red-600">
+                  <i data-lucide="phone" class="h-5 w-5"></i>
+                </div>
+                <div>
+                  <p class="text-base font-semibold text-slate-900">Guru BK Kelas X</p>
+                  <p class="mt-1 text-sm text-slate-600">Sinta Nistiana, S.Pd., Gr.</p>
+                  <p class="mt-2 text-sm font-medium text-red-600">+62 822-4180-0708</p>
+                  <p class="mt-1 text-xs text-slate-500">Jam sekolah</p>
+                </div>
+              </div>
+            </div>
+            <div class="rounded-2xl border border-red-100 bg-white p-6 shadow-soft">
+              <div class="flex items-start gap-3">
+                <div class="flex h-10 w-10 items-center justify-center rounded-full bg-red-100 text-red-600">
+                  <i data-lucide="user-check" class="h-5 w-5"></i>
+                </div>
+                <div>
+                  <p class="text-base font-semibold text-slate-900">Wakasek Kesiswaan</p>
+                  <p class="mt-1 text-sm text-slate-600">Tim Anti-Bullying Sekolah</p>
+                  <p class="mt-2 text-xs text-slate-500">Koordinasi penanganan & perlindungan</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="rounded-2xl border border-red-100 bg-red-50/50 p-6">
+            <div class="flex flex-col gap-3 sm:flex-row sm:items-start">
+              <div class="flex h-10 w-10 items-center justify-center rounded-full bg-red-100 text-red-600">
+                <i data-lucide="lock" class="h-5 w-5"></i>
+              </div>
+              <div>
+                <p class="text-base font-semibold text-slate-900">Privasi & Kerahasiaan Terjamin</p>
+                <p class="mt-1 text-sm text-slate-600">Identitas pelapor dapat bersifat anonim/rahasia. Laporan akan
+                  ditangani oleh Tim Anti-Bullying sesuai kode etik Bimbingan Konseling dengan prinsip kehati-hatian,
+                  netral, dan berorientasi pada keselamatan serta pemulihan.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kebijakan -->
+    <section id="kebijakan" class="py-12 md:py-16">
+      <div class="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl space-y-3">
+          <span
+            class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-1 text-xs font-semibold text-red-700">Kebijakan
+            & Regulasi</span>
+          <h2 class="text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">Kebijakan & Regulasi 2026</h2>
+          <p class="text-base text-slate-600 md:text-lg">Landasan hukum dan kebijakan dalam pencegahan serta
+            penanganan perundungan di satuan pendidikan.</p>
+        </div>
+        <div class="mt-8">
+          <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft">
+            <div class="flex items-start gap-3">
+              <div class="flex h-10 w-10 items-center justify-center rounded-full bg-brand-blue/10 text-brand-blue">
+                <i data-lucide="scale" class="h-5 w-5"></i>
+              </div>
+              <div class="w-full">
+                <p class="text-lg font-semibold text-brand-slate">Rujukan Terkini</p>
+                <ul class="mt-3 space-y-3">
+                  <li class="rounded-lg border border-slate-200 p-4">
+                    <p class="text-sm font-semibold text-brand-slate">Permendikdasmen No. 6 Tahun 2026</p>
+                    <p class="mt-1 text-sm text-slate-600">Tentang Budaya Sekolah Aman dan Nyaman.</p>
+                  </li>
+                  <li class="rounded-lg border border-slate-200 p-4">
+                    <p class="text-sm font-semibold text-brand-slate">Kepmendikdasmen No. 17 Tahun 2026</p>
+                    <p class="mt-1 text-sm text-slate-600">Terkait penguatan pencegahan dan penanganan perundungan.
+                    </p>
+                  </li>
+                  <li class="rounded-lg border border-slate-200 p-4">
+                    <p class="text-sm font-semibold text-brand-slate">Permendikdasmen No. 12 Tahun 2026</p>
+                    <p class="mt-1 text-sm text-slate-600">Tentang MPLS yang aman, ramah, inklusif.</p>
+                  </li>
+                  <li class="rounded-lg border border-slate-200 p-4">
+                    <p class="text-sm font-semibold text-brand-slate">SE Mendikdasmen No. 18 Tahun 2026</p>
+                    <p class="mt-1 text-sm text-slate-600">Tentang Penggunaan Gawai di lingkungan satuan pendidikan.
+                    </p>
+                  </li>
+                  <li class="rounded-lg border border-slate-200 p-4">
+                    <p class="text-sm font-semibold text-brand-slate">PP No. 17 Tahun 2025 (PP TUNAS)</p>
+                    <p class="mt-1 text-sm text-slate-600">Penguatan tata kelola dan layanan pendidikan.</p>
+                  </li>
+                </ul>
+                <p class="mt-4 text-xs text-slate-500">*Informasi bersifat ringkas untuk edukasi warga sekolah. Untuk
+                  teks lengkap, merujuk pada naskah resmi peraturan perundang-undangan.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Deklarasi -->
+    <section id="deklarasi" class="bg-white py-12 md:py-16">
+      <div class="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl space-y-3">
+          <span
+            class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-1 text-xs font-semibold text-red-700">Deklarasi</span>
+          <h2 class="text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">Deklarasi & Ikrar Digital Murid
+            Anti-Bullying</h2>
+          <p class="text-base text-slate-600 md:text-lg">Komitmen bersama mewujudkan SMA Negeri 1 Makassar sebagai
+            sekolah aman, nyaman, berani bicara, dan saling melindungi.</p>
+        </div>
+        <div class="mt-8 grid gap-6 lg:grid-cols-[1.2fr_1fr]">
+          <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft">
+            <div class="flex items-start gap-3">
+              <div class="flex h-10 w-10 items-center justify-center rounded-full bg-brand-purple/10 text-brand-purple">
+                <i data-lucide="heart-handshake" class="h-5 w-5"></i>
+              </div>
+              <div>
+                <p class="text-lg font-semibold text-brand-slate">Ikrar Bersama</p>
+                <div class="mt-3 space-y-2 text-sm leading-relaxed text-slate-600">
+                  <p>Kami, warga SMA Negeri 1 Makassar, berjanji:</p>
+                  <ul class="space-y-2">
+                    <li>• Menghormati dan menghargai perbedaan</li>
+                    <li>• Menolak segala bentuk perundungan fisik, verbal, sosial/relasional, dan cyberbullying</li>
+                    <li>• Menjadi upstander yang aman dan bijak</li>
+                    <li>• Berani bicara dan melindungi teman</li>
+                    <li>• Bijak bermedia digital dengan etika dan empati</li>
+                    <li>• Membangun suasana belajar yang aman, nyaman, dan inklusif</li>
+                  </ul>
+                  <p class="font-medium text-brand-slate">"Aman, Nyaman, Berani Bicara • Berani Peduli, Berani
+                    Melindungi"</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div id="declarationBefore"
+              class="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg">
+              <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                <div class="flex items-start gap-3">
+                  <div class="flex h-10 w-10 items-center justify-center rounded-full bg-brand-purple/10 text-brand-purple">
+                    <i data-lucide="heart-handshake" class="h-5 w-5"></i>
+                  </div>
+                  <div>
+                    <p class="text-base font-semibold text-brand-slate">Ikrar Digital Murid Anti-Bullying</p>
+                    <p class="mt-1 text-sm text-slate-600">Klik untuk menyatakan komitmen menjadi bagian dari budaya
+                      sekolah aman dan nyaman.</p>
+                  </div>
+                </div>
+                <button onclick="declareCommitment()"
+                  class="inline-flex items-center justify-center gap-2 rounded-lg bg-brand-blue px-5 py-2.5 text-sm font-semibold text-white shadow-soft transition hover:bg-brand-blueLight">Klik
+                  untuk Menyatakan Komitmen</button>
+              </div>
+            </div>
+            <div id="declarationAfter" class="hidden rounded-2xl border border-slate-200 bg-white p-6 text-center shadow-soft">
+              <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-brand-green/10 text-brand-greenDark">
+                <i data-lucide="check-circle-2" class="h-6 w-6"></i>
+              </div>
+              <p class="mt-3 text-lg font-semibold text-brand-slate">Terima kasih atas komitmenmu!</p>
+              <p class="mt-1 text-sm text-slate-600">"Saya berjanji menjadi warga SMA Negeri 1 Makassar yang aman,
+                nyaman, saling menghormati, dan berani melindungi."</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-red-100 bg-white">
+    <div class="mx-auto grid w-full max-w-6xl gap-8 px-4 py-10 sm:px-6 md:grid-cols-2 lg:grid-cols-4 lg:px-8">
+      <div class="space-y-3">
+        <div class="flex items-center gap-2">
+          <img src="Logo.png" alt="Logo SMA Negeri 1 Makassar" class="h-24 w-24 object-contain">
+          <div>
+            <p class="text-sm font-bold text-slate-900">Portal Anti-Bullying</p>
+            <p class="text-xs text-slate-500">SMA Negeri 1 Makassar</p>
+          </div>
+        </div>
+        <p class="text-sm text-slate-600">Aman, Nyaman, Berani Bicara • Berani Peduli, Berani Melindungi</p>
+        <p class="text-xs text-slate-500">Mengedepankan privasi, kerahasiaan, dan pendampingan bagi korban.</p>
+      </div>
+      <div>
+        <p class="text-sm font-semibold text-slate-900">Navigasi</p>
+        <ul class="mt-3 space-y-2 text-sm text-slate-600">
+          <li><a class="hover:text-red-600" href="#beranda">Beranda</a></li>
+          <li><a class="hover:text-red-600" href="#edukasi">Edukasi Anti-Bullying</a></li>
+          <li><a class="hover:text-red-600" href="#panduan">Panduan Aksi & Peran</a></li>
+          <li><a class="hover:text-red-600" href="#pengaduan">Kanal Pengaduan</a></li>
+          <li><a class="hover:text-red-600" href="#kebijakan">Kebijakan & Regulasi</a></li>
+          <li><a class="hover:text-red-600" href="#deklarasi">Deklarasi Ikrar</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="text-sm font-semibold text-slate-900">Layanan Cepat</p>
+        <ul class="mt-3 space-y-2 text-sm text-slate-600">
+          <li>Koordinator BK / Guru BK Kelas XII</li>
+          <li>Guru BK Kelas XI</li>
+          <li>Guru BK Kelas X</li>
+          <li>Wakasek Kesiswaan / Tim Anti-Bullying</li>
+        </ul>
+      </div>
+      <div class="lg:col-span-2">
+        <p class="text-sm font-semibold text-slate-900">Kontak</p>
+        <ul class="mt-3 space-y-2 text-sm text-slate-600">
+          <li class="flex items-start gap-2">
+            <i data-lucide="map-pin" class="mt-0.5 h-4 w-4"></i>
+            <span>Jl. G. Bawakaraeng No.53, Gaddong, Kec. Bontoala, Kota Makassar, Sulawesi Selatan 90111</span>
+          </li>
+          <li class="flex items-center gap-2"><i data-lucide="globe" class="h-4 w-4"></i> <a href="https://www.sman1mks.sch.id" target="_blank" rel="noopener noreferrer" class="hover:text-red-600">www.sman1mks.sch.id</a></li>
+          <li class="flex items-center gap-2"><i data-lucide="mail" class="h-4 w-4"></i> <a href="mailto:smanegeri01mks@gmail.com" class="hover:text-red-600">smanegeri01mks@gmail.com</a></li>
+          <li class="flex items-center gap-2"><i data-lucide="user" class="h-4 w-4"></i> Kepala SMA Negeri 1 Makassar : Drs.H. Sulihin Mustafa, M.Pd.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-red-100">
+      <div class="mx-auto flex w-full max-w-6xl flex-col items-center justify-between gap-3 px-4 py-4 text-center text-xs text-slate-500 sm:flex-row sm:px-6 lg:px-8">
+        <p>© <span id="year"></span> SMA Negeri 1 Makassar. Hak Cipta Dilindungi.</p>
+        <div class="flex items-center gap-3">
+          <span class="text-slate-400">|</span>
+          <a href="https://www.youtube.com/@SmansaMakassar" target="_blank" rel="noopener noreferrer" class="hover:text-red-600">Youtube</a>
+          <a href="https://www.instagram.com/sman1mks" target="_blank" rel="noopener noreferrer" class="hover:text-red-600">Instagram</a>
+          <a href="https://www.tiktok.com/@Sman1mks" target="_blank" rel="noopener noreferrer" class="hover:text-red-600">TikTok</a>
+          <a href="https://www.facebook.com/SmansaMakassar" target="_blank" rel="noopener noreferrer" class="hover:text-red-600">Facebook</a>
+        </div>
+        <p>Dibuat untuk mendukung Budaya Sekolah Aman dan Nyaman.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function toggleMenu() {
+      const menu = document.getElementById('mobileMenu');
+      const icon = document.getElementById('menuIcon');
+      menu.classList.toggle('hidden');
+      if (menu.classList.contains('hidden')) {
+        icon.setAttribute('data-lucide', 'menu');
+      } else {
+        icon.setAttribute('data-lucide', 'x');
+      }
+      lucide.createIcons();
+    }
+
+    document.getElementById('menuBtn').addEventListener('click', toggleMenu);
+
+    function toggleAnonymous() {
+      const checked = document.getElementById('anonymous').checked;
+      const wrap = document.getElementById('trustedContactWrap');
+      if (checked) {
+        wrap.classList.add('hidden');
+      } else {
+        wrap.classList.remove('hidden');
+      }
+    }
+
+    function toggleLocationDetail() {
+      const val = document.getElementById('location').value;
+      const wrap = document.getElementById('locationDetailWrap');
+      if (val === 'Lainnya') {
+        wrap.classList.remove('hidden');
+      } else {
+        wrap.classList.add('hidden');
+      }
+    }
+
+    function submitForm(e) {
+      e.preventDefault();
+      const desc = document.getElementById('description').value.trim();
+      const agree = document.getElementById('agreePrivacy').checked;
+      const meeting = document.getElementById('meetingSchedule').value;
+      const errorBox = document.getElementById('formError');
+      const errorText = document.getElementById('formErrorText');
+
+      if (!desc) {
+        errorText.textContent = 'Deskripsi kejadian wajib diisi.';
+        errorBox.classList.remove('hidden');
+        errorBox.classList.add('flex');
+        window.scrollTo({ top: document.getElementById('pengaduan').offsetTop - 80, behavior: 'smooth' });
+        return;
+      }
+
+      if (!meeting) {
+        errorText.textContent = 'Mohon pilih jadwal bertemu langsung dengan Guru BK.';
+        errorBox.classList.remove('hidden');
+        errorBox.classList.add('flex');
+        window.scrollTo({ top: document.getElementById('pengaduan').offsetTop - 80, behavior: 'smooth' });
+        return;
+      }
+
+      if (!agree) {
+        errorText.textContent = 'Mohon centang persetujuan privasi & kerahasiaan.';
+        errorBox.classList.remove('hidden');
+        errorBox.classList.add('flex');
+        window.scrollTo({ top: document.getElementById('pengaduan').offsetTop - 80, behavior: 'smooth' });
+        return;
+      }
+
+      errorBox.classList.add('hidden');
+      errorBox.classList.remove('flex');
+      document.getElementById('complaintForm').classList.add('hidden');
+      document.getElementById('formSuccess').classList.remove('hidden');
+      document.getElementById('formSuccess').classList.add('fade-in');
+      window.scrollTo({ top: document.getElementById('pengaduan').offsetTop - 80, behavior: 'smooth' });
+    }
+
+    function resetForm() {
+      document.getElementById('complaintForm').reset();
+      document.getElementById('trustedContactWrap').classList.remove('hidden');
+      document.getElementById('locationDetailWrap').classList.add('hidden');
+      document.getElementById('formError').classList.add('hidden');
+      document.getElementById('formError').classList.remove('flex');
+      document.getElementById('formSuccess').classList.add('hidden');
+      document.getElementById('complaintForm').classList.remove('hidden');
+      window.scrollTo({ top: document.getElementById('pengaduan').offsetTop - 80, behavior: 'smooth' });
+    }
+
+    function declareCommitment() {
+      document.getElementById('declarationBefore').classList.add('hidden');
+      document.getElementById('declarationAfter').classList.remove('hidden');
+      document.getElementById('declarationAfter').classList.add('fade-in');
+    }
+  </script>
+
+  <!-- SheetJS untuk export Excel -->
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+
+  <!-- Modal Akses Guru BK -->
+  <div id="bkModal" class="fixed inset-0 z-[999] hidden items-center justify-center bg-black/60 px-4">
+    <div class="max-h-[95vh] w-full max-w-7xl overflow-hidden rounded-2xl bg-white shadow-2xl">
+      <div class="flex items-center justify-between border-b border-red-100 px-6 py-4">
+        <div class="flex items-center gap-2">
+          <div class="flex h-9 w-9 items-center justify-center rounded-lg bg-red-100 text-red-600">
+            <i data-lucide="shield-check" class="h-5 w-5"></i>
+          </div>
+          <div>
+            <p class="text-base font-semibold text-slate-900">Akses Guru BK</p>
+            <p class="text-xs text-slate-500">Rekap, Filter, Download & Reset Data Laporan Pengaduan</p>
+          </div>
+        </div>
+        <button onclick="closeBkModal()" class="rounded-lg p-2 text-slate-500 transition hover:bg-slate-100">
+          <i data-lucide="x" class="h-5 w-5"></i>
+        </button>
+      </div>
+
+      <!-- Login -->
+      <div id="bkLoginView" class="px-6 py-10">
+        <div class="mx-auto max-w-md space-y-4">
+          <div class="text-center">
+            <p class="text-lg font-semibold text-slate-900">Login Khusus Guru BK</p>
+            <p class="mt-1 text-sm text-slate-600">Masukkan password untuk mengakses rekap laporan</p>
+          </div>
+          <div class="space-y-2">
+            <label class="text-sm text-slate-700">Password</label>
+            <input type="password" id="bkPassInput" class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-red-600 focus:outline-none focus:ring-1 focus:ring-red-600" placeholder="Masukkan password">
+          </div>
+          <button onclick="bkLogin()" class="w-full rounded-lg bg-red-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-red-700">Masuk</button>
+          <p class="text-center text-xs text-slate-500">Password default: <span class="font-semibold">bk12345</span></p>
+          <p id="bkLoginMsg" class="hidden text-center text-sm text-red-600"></p>
+        </div>
+      </div>
+
+      <!-- Dashboard -->
+      <div id="bkDashView" class="hidden">
+        <div class="flex flex-col gap-3 border-b border-slate-100 px-6 py-4 lg:flex-row lg:items-center lg:justify-between">
+          <div class="flex flex-wrap items-center gap-2">
+            <select id="bkFilterType" onchange="toggleBkFilter()" class="rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-red-600 focus:outline-none focus:ring-1 focus:ring-red-600">
+              <option value="all">Semua Periode</option>
+              <option value="semester">Filter Semester & Tahun Ajaran</option>
+              <option value="range">Filter Rentang Tanggal Diterima</option>
+            </select>
+            <div id="bkSemesterWrap" class="hidden flex-wrap items-center gap-2">
+              <select id="bkSemesterSelect" class="rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-red-600 focus:outline-none focus:ring-1 focus:ring-red-600">
+                <option value="Ganjil">Semester Ganjil</option>
+                <option value="Genap">Semester Genap</option>
+              </select>
+              <input type="text" id="bkTahunAjaran" class="rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-red-600 focus:outline-none focus:ring-1 focus:ring-red-600" placeholder="Contoh: 2026/2027">
+            </div>
+            <div id="bkRangeWrap" class="hidden flex-wrap items-center gap-2">
+              <input type="date" id="bkStartDate" class="rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-red-600 focus:outline-none focus:ring-1 focus:ring-red-600">
+              <span class="text-sm text-slate-500">s/d</span>
+              <input type="date" id="bkEndDate" class="rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-red-600 focus:outline-none focus:ring-1 focus:ring-red-600">
+            </div>
+            <button onclick="applyBkFilter()" class="rounded-lg bg-slate-900 px-3 py-2 text-sm font-semibold text-white hover:bg-slate-800">Terapkan</button>
+            <button onclick="resetBkFilter()" class="rounded-lg px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-100">Reset</button>
+          </div>
+          <div class="flex flex-wrap items-center gap-2">
+            <button onclick="exportBkExcel()" class="inline-flex items-center gap-2 rounded-lg bg-red-600 px-3 py-2 text-sm font-semibold text-white hover:bg-red-700"><i data-lucide="file-spreadsheet" class="h-4 w-4"></i> Download Excel</button>
+            <button onclick="exportBkCSV()" class="inline-flex items-center gap-2 rounded-lg border border-red-200 px-3 py-2 text-sm font-semibold text-red-700 hover:bg-red-50"><i data-lucide="file-text" class="h-4 w-4"></i> Download CSV</button>
+            <button onclick="openChangePass()" class="inline-flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-100"><i data-lucide="key-round" class="h-4 w-4"></i> Ganti Password</button>
+            <button onclick="resetAllReports()" class="inline-flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-semibold text-red-700 hover:bg-red-50"><i data-lucide="trash-2" class="h-4 w-4"></i> Reset Data</button>
+            <button onclick="bkLogout()" class="inline-flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-100"><i data-lucide="log-out" class="h-4 w-4"></i> Keluar</button>
+          </div>
+        </div>
+        <div class="px-6 py-4">
+          <div class="mb-3 flex items-center justify-between">
+            <p class="text-sm text-slate-600">Total Ditampilkan: <span id="bkCount" class="font-semibold text-slate-900">0</span> Laporan</p>
+            <p id="bkFilterLabel" class="text-xs text-slate-500">Menampilkan semua periode</p>
+          </div>
+          <div class="max-h-[65vh] overflow-auto rounded-xl border border-slate-200">
+            <table class="min-w-[1600px] w-full divide-y divide-slate-200 text-sm">
+              <thead class="bg-slate-50">
+                <tr>
+                  <th class="whitespace-nowrap px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-600">No</th>
+                  <th class="whitespace-nowrap px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-600">Tanggal Diterima</th>
+                  <th class="whitespace-nowrap px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-600">Jam Diterima</th>
+                  <th class="whitespace-nowrap px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-600">Anonim</th>
+                  <th class="whitespace-nowrap px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-600">Jenis Pelapor</th>
+                  <th class="whitespace-nowrap px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-600">Kontak Terpercaya</th>
+                  <th class="whitespace-nowrap px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-600">Jenis Perundungan</th>
+                  <th class="whitespace-nowrap px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-600">Lokasi Kejadian</th>
+                  <th class="whitespace-nowrap px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-600">Detail Lokasi</th>
+                  <th class="whitespace-nowrap px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-600">Tanggal Kejadian</th>
+                  <th class="whitespace-nowrap px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-600">Waktu Kejadian</th>
+                  <th class="whitespace-nowrap px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-600">Jadwal Konsultasi BK</th>
+                  <th class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-600">Deskripsi Kejadian</th>
+                  <th class="whitespace-nowrap px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-600">Persetujuan Privasi</th>
+                </tr>
+              </thead>
+              <tbody id="bkTableBody" class="divide-y divide-slate-100 bg-white"></tbody>
+            </table>
+          </div>
+          <p id="bkEmpty" class="hidden py-10 text-center text-sm text-slate-500">Belum ada laporan yang tersimpan di perangkat ini.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Ganti Password -->
+  <div id="changePassModal" class="fixed inset-0 z-[1000] hidden items-center justify-center bg-black/60 px-4">
+    <div class="w-full max-w-md rounded-2xl bg-white shadow-xl">
+      <div class="flex items-center justify-between border-b border-red-100 px-6 py-4">
+        <p class="text-base font-semibold text-slate-900">Ganti Password Guru BK</p>
+        <button onclick="closeChangePass()" class="rounded-lg p-2 text-slate-500 hover:bg-slate-100"><i data-lucide="x" class="h-5 w-5"></i></button>
+      </div>
+      <div class="space-y-3 px-6 py-5">
+        <div class="space-y-1">
+          <label class="text-sm text-slate-700">Password Lama</label>
+          <input type="password" id="oldPass" class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-red-600 focus:outline-none focus:ring-1 focus:ring-red-600">
+        </div>
+        <div class="space-y-1">
+          <label class="text-sm text-slate-700">Password Baru</label>
+          <input type="password" id="newPass" class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-red-600 focus:outline-none focus:ring-1 focus:ring-red-600">
+        </div>
+        <div class="space-y-1">
+          <label class="text-sm text-slate-700">Konfirmasi Password Baru</label>
+          <input type="password" id="confPass" class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-red-600 focus:outline-none focus:ring-1 focus:ring-red-600">
+        </div>
+        <p id="passMsg" class="hidden text-sm"></p>
+        <div class="flex justify-end gap-2 pt-2">
+          <button onclick="closeChangePass()" class="rounded-lg px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-100">Batal</button>
+          <button onclick="saveNewPass()" class="rounded-lg bg-red-600 px-4 py-2 text-sm font-semibold text-white hover:bg-red-700">Simpan</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // BK Storage
+    const BK_PASS_KEY = "bk_pass_antibullying";
+    const REPORT_KEY = "laporan_antibullying_local";
+
+    function getBkPass() {
+      return localStorage.getItem(BK_PASS_KEY) || "bk12345";
+    }
+    function setBkPass(p) {
+      localStorage.setItem(BK_PASS_KEY, p);
+    }
+    function getReports() {
+      return JSON.parse(localStorage.getItem(REPORT_KEY) || "[]");
+    }
+    function saveReports(arr) {
+      localStorage.setItem(REPORT_KEY, JSON.stringify(arr));
+    }
+
+    // Form submit -> simpan ke localStorage
+    const originalSubmitForm = submitForm;
+    submitForm = async function(e) {
+      e.preventDefault();
+      const desc = document.getElementById('description').value.trim();
+      const agree = document.getElementById('agreePrivacy').checked;
+      const meeting = document.getElementById('meetingSchedule').value;
+      const errorBox = document.getElementById('formError');
+      const errorText = document.getElementById('formErrorText');
+      const submitBtn = e.target.querySelector('button[type="submit"]');
+
+      if (!desc) {
+        errorText.textContent = 'Deskripsi kejadian wajib diisi.';
+        errorBox.classList.remove('hidden');
+        errorBox.classList.add('flex');
+        window.scrollTo({ top: document.getElementById('pengaduan').offsetTop - 80, behavior: 'smooth' });
+        return;
+      }
+      if (!meeting) {
+        errorText.textContent = 'Mohon pilih jadwal bertemu langsung dengan Guru BK.';
+        errorBox.classList.remove('hidden');
+        errorBox.classList.add('flex');
+        window.scrollTo({ top: document.getElementById('pengaduan').offsetTop - 80, behavior: 'smooth' });
+        return;
+      }
+      if (!agree) {
+        errorText.textContent = 'Mohon centang persetujuan privasi & kerahasiaan.';
+        errorBox.classList.remove('hidden');
+        errorBox.classList.add('flex');
+        window.scrollTo({ top: document.getElementById('pengaduan').offsetTop - 80, behavior: 'smooth' });
+        return;
+      }
+
+      errorBox.classList.add('hidden');
+      errorBox.classList.remove('flex');
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i data-lucide="loader-2" class="h-4 w-4 animate-spin"></i> Mengirim...';
+        lucide.createIcons();
+      }
+
+      const now = new Date();
+      const data = {
+        id: Date.now(),
+        tanggalDiterima: now.toLocaleDateString('id-ID'),
+        jamDiterima: now.toLocaleTimeString('id-ID'),
+        anonim: document.getElementById('anonymous').checked ? "Ya" : "Tidak",
+        jenisPelapor: document.getElementById('reporterType').value,
+        kontakTerpercaya: document.getElementById('trustedContact').value || "-",
+        jenisPerundungan: document.getElementById('reportType').value,
+        lokasiKejadian: document.getElementById('location').value,
+        detailLokasi: document.getElementById('locationDetail').value || "-",
+        tanggalKejadian: document.getElementById('incidentDate').value || "-",
+        waktuKejadian: document.getElementById('incidentTime').value || "-",
+        jadwalBK: meeting,
+        deskripsi: desc,
+        persetujuan: agree ? "Setuju" : "Tidak Setuju"
+      };
+
+      const list = getReports();
+      list.unshift(data);
+      saveReports(list);
+
+      setTimeout(() => {
+        document.getElementById('complaintForm').classList.add('hidden');
+        document.getElementById('formSuccess').classList.remove('hidden');
+        document.getElementById('formSuccess').classList.add('fade-in');
+        window.scrollTo({ top: document.getElementById('pengaduan').offsetTop - 80, behavior: 'smooth' });
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = '<i data-lucide="send" class="h-4 w-4"></i> Kirim Laporan';
+          lucide.createIcons();
+        }
+      }, 600);
+    }
+
+    // BK Functions
+    let bkDataAll = [];
+    let bkDataView = [];
+
+    function openBkModal(){ document.getElementById('bkModal').classList.remove('hidden'); document.getElementById('bkModal').classList.add('flex'); document.getElementById('bkLoginView').classList.remove('hidden'); document.getElementById('bkDashView').classList.add('hidden'); document.getElementById('bkPassInput').value=''; document.getElementById('bkLoginMsg').classList.add('hidden'); lucide.createIcons(); }
+    function closeBkModal(){ document.getElementById('bkModal').classList.add('hidden'); document.getElementById('bkModal').classList.remove('flex'); }
+
+    function bkLogin(){
+      const pass = document.getElementById('bkPassInput').value;
+      const msg = document.getElementById('bkLoginMsg');
+      if(pass !== getBkPass()){ msg.textContent='Password salah!'; msg.classList.remove('hidden'); return; }
+      msg.classList.add('hidden');
+      bkDataAll = getReports();
+      document.getElementById('bkLoginView').classList.add('hidden');
+      document.getElementById('bkDashView').classList.remove('hidden');
+      resetBkFilter();
+      lucide.createIcons();
+    }
+
+    function bkLogout(){ closeBkModal(); }
+
+    function toggleBkFilter(){
+      const t = document.getElementById('bkFilterType').value;
+      document.getElementById('bkSemesterWrap').classList.add('hidden');
+      document.getElementById('bkRangeWrap').classList.add('hidden');
+      if(t==='semester'){ document.getElementById('bkSemesterWrap').classList.remove('hidden'); document.getElementById('bkSemesterWrap').classList.add('flex'); }
+      if(t==='range'){ document.getElementById('bkRangeWrap').classList.remove('hidden'); document.getElementById('bkRangeWrap').classList.add('flex'); }
+    }
+
+    function applyBkFilter(){
+      const t = document.getElementById('bkFilterType').value;
+      let data = [...bkDataAll];
+      let label = 'Menampilkan semua periode';
+      if(t==='semester'){
+        const ta = document.getElementById('bkTahunAjaran').value.trim();
+        if(!ta){ alert('Isi Tahun Ajaran terlebih dahulu (contoh: 2026/2027)'); return; }
+        label = `Filter: Semester ${document.getElementById('bkSemesterSelect').value} T.A. ${ta}`;
+        data = data.filter(x => x.tanggalDiterima.includes(ta.split('/')[0]) || x.tanggalDiterima.includes(ta.split('/')[1]));
+      }
+      if(t==='range'){
+        const s = document.getElementById('bkStartDate').value;
+        const e = document.getElementById('bkEndDate').value;
+        if(!s||!e){ alert('Pilih tanggal mulai dan akhir'); return; }
+        data = data.filter(x=>{
+          try {
+            const parts = x.tanggalDiterima.split('/');
+            const d = parts[2] + '-' + parts[1].padStart(2,'0') + '-' + parts[0].padStart(2,'0');
+            return d>=s && d<=e;
+          } catch(e){ return false; }
+        });
+        label = `Filter: ${s} s/d ${e}`;
+      }
+      renderTable(data,label);
+    }
+
+    function resetBkFilter(){
+      document.getElementById('bkFilterType').value='all';
+      document.getElementById('bkSemesterWrap').classList.add('hidden');
+      document.getElementById('bkRangeWrap').classList.add('hidden');
+      bkDataAll = getReports();
+      renderTable(bkDataAll,'Menampilkan semua periode');
+    }
+
+    function renderTable(data,label){
+      bkDataView = data;
+      const body = document.getElementById('bkTableBody');
+      const empty = document.getElementById('bkEmpty');
+      document.getElementById('bkCount').textContent = data.length;
+      document.getElementById('bkFilterLabel').textContent = label;
+      body.innerHTML='';
+      if(data.length===0){ empty.classList.remove('hidden'); return; }
+      empty.classList.add('hidden');
+      data.forEach((r,i)=>{
+        const tr = document.createElement('tr');
+        tr.innerHTML = `<td class="px-4 py-3">${i+1}</td><td class="px-4 py-3 whitespace-nowrap">${r.tanggalDiterima||'-'}</td><td class="px-4 py-3 whitespace-nowrap">${r.jamDiterima||'-'}</td><td class="px-4 py-3">${r.anonim||'-'}</td><td class="px-4 py-3">${r.jenisPelapor||'-'}</td><td class="px-4 py-3">${r.kontakTerpercaya||'-'}</td><td class="px-4 py-3">${r.jenisPerundungan||'-'}</td><td class="px-4 py-3">${r.lokasiKejadian||'-'}</td><td class="px-4 py-3">${r.detailLokasi||'-'}</td><td class="px-4 py-3 whitespace-nowrap">${r.tanggalKejadian||'-'}</td><td class="px-4 py-3 whitespace-nowrap">${r.waktuKejadian||'-'}</td><td class="px-4 py-3 whitespace-nowrap">${r.jadwalBK||'-'}</td><td class="px-4 py-3">${r.deskripsi||'-'}</td><td class="px-4 py-3">${r.persetujuan||'-'}</td>`;
+        body.appendChild(tr);
+      });
+      lucide.createIcons();
+    }
+
+    function exportBkExcel(){
+      if(bkDataView.length===0) return alert('Tidak ada data untuk diunduh');
+      const rows = bkDataView.map((r,i)=>({
+        No:i+1,'Tanggal Diterima':r.tanggalDiterima,'Jam Diterima':r.jamDiterima,'Anonim':r.anonim,'Jenis Pelapor':r.jenisPelapor,'Kontak Terpercaya':r.kontakTerpercaya,'Jenis Perundungan':r.jenisPerundungan,'Lokasi Kejadian':r.lokasiKejadian,'Detail Lokasi':r.detailLokasi,'Tanggal Kejadian':r.tanggalKejadian,'Waktu Kejadian':r.waktuKejadian,'Jadwal Konsultasi BK':r.jadwalBK,'Deskripsi Kejadian':r.deskripsi,'Persetujuan Privasi':r.persetujuan
+      }));
+      const ws = XLSX.utils.json_to_sheet(rows);
+      const wb = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, "Rekap Laporan");
+      XLSX.writeFile(wb, `Rekap_Laporan_AntiBullying_${new Date().toISOString().slice(0,10)}.xlsx`);
+    }
+
+    function exportBkCSV(){
+      if(bkDataView.length===0) return alert('Tidak ada data untuk diunduh');
+      const header = ['No','Tanggal Diterima','Jam Diterima','Anonim','Jenis Pelapor','Kontak Terpercaya','Jenis Perundungan','Lokasi Kejadian','Detail Lokasi','Tanggal Kejadian','Waktu Kejadian','Jadwal Konsultasi BK','Deskripsi Kejadian','Persetujuan Privasi'];
+      let csv = header.join(';')+'\n';
+      bkDataView.forEach((r,i)=>{
+        const line = [i+1,r.tanggalDiterima,r.jamDiterima,r.anonim,r.jenisPelapor,r.kontakTerpercaya,r.jenisPerundungan,r.lokasiKejadian,r.detailLokasi,r.tanggalKejadian,r.waktuKejadian,r.jadwalBK,'"'+(r.deskripsi||'').replace(/"/g,'""')+'"',r.persetujuan].join(';');
+        csv += line+'\n';
+      });
+      const blob = new Blob([csv],{type:'text/csv;charset=utf-8;'});
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = `Rekap_Laporan_AntiBullying_${new Date().toISOString().slice(0,10)}.csv`;
+      a.click();
+    }
+
+    function resetAllReports(){
+      if(!confirm('Yakin ingin mengosongkan SELURUH rekap laporan?\n\nData tidak bisa dikembalikan!')) return;
+      localStorage.removeItem(REPORT_KEY);
+      bkDataAll=[]; bkDataView=[];
+      renderTable([], 'Menampilkan semua periode');
+      alert('Seluruh data laporan berhasil direset.');
+    }
+
+    function openChangePass(){ document.getElementById('changePassModal').classList.remove('hidden'); document.getElementById('changePassModal').classList.add('flex'); document.getElementById('oldPass').value=''; document.getElementById('newPass').value=''; document.getElementById('confPass').value=''; document.getElementById('passMsg').classList.add('hidden'); }
+    function closeChangePass(){ document.getElementById('changePassModal').classList.add('hidden'); document.getElementById('changePassModal').classList.remove('flex'); }
+
+    function saveNewPass(){
+      const oldp = document.getElementById('oldPass').value;
+      const np = document.getElementById('newPass').value;
+      const cp = document.getElementById('confPass').value;
+      const msg = document.getElementById('passMsg');
+      if(oldp !== getBkPass()){ msg.textContent='Password lama salah'; msg.className='text-sm text-red-600'; msg.classList.remove('hidden'); return; }
+      if(np.length<5){ msg.textContent='Password baru minimal 5 karakter'; msg.className='text-sm text-red-600'; msg.classList.remove('hidden'); return; }
+      if(np !== cp){ msg.textContent='Konfirmasi password tidak sama'; msg.className='text-sm text-red-600'; msg.classList.remove('hidden'); return; }
+      setBkPass(np);
+      msg.textContent='Password berhasil diubah!'; msg.className='text-sm text-green-600'; msg.classList.remove('hidden');
+      setTimeout(closeChangePass,1000);
+    }
+  </script>
+</body>
+
+</html>
